@@ -1,0 +1,22 @@
+﻿@model NewsItemPageViewModel
+
+@if (Model.News != null)
+{
+    foreach (var article in Model.News)
+    {
+        <div class="item clear">
+            <figure class="thumb">
+                <div class="tm-hex" style="background-image: url('@Url.ContentUrl(article.Image)');">
+                    <div class="hexTop"></div>
+                    <div class="hexBottom"></div>
+                </div>
+                <figcaption>
+                    <a href="@article.LinkURL)"><h4>@article.Headline</h4></a>
+                </figcaption>
+            </figure>
+            <div class="text">
+                <p>@Html.Raw(article.MainBody)</p>
+            </div>
+        </div>
+    }
+}

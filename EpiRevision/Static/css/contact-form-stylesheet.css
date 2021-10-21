@@ -1,0 +1,39 @@
+﻿div.Form__Element input.FormTextbox__Input {
+    background-color: #1e2530;
+    color: #bcbcbc;
+    border: 0 none;
+    border-radius: 3px;
+    height: 48px;
+    padding-left: 10px;
+    width: 100%;
+    font-family: "Open Sans", sans-serif;
+    margin-bottom: 10px;
+}
+
+textarea.FormTextbox__Input {
+    background-color: #1e2530;
+    color: #bcbcbc;
+    border: 0 none;
+    width: 100%;
+    font-family: "Open Sans", sans-serif;
+    border-radius: 3px;
+    height: 120px;
+    padding: 15px 10px 15px 10px;
+}
+
+.FormSubmitButton {
+    background-color: #FA6862;
+    border: 0;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    height: 48px;
+    line-height: 50px;
+    padding: 0 42px;
+    text-transform: uppercase;
+    color: white;
+    border-radius: 3px;
+}
+
+    .FormSubmitButton:hover, .FormSubmitButton:focus, .FormSubmitButton:active:focus {
+        background-color: #f9423a;
+    }

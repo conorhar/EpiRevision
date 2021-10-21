@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <!-- meta charset -->
+    <meta charset="utf-8">
+    <!-- site title -->
+    <title>EpiRevision</title>
+    <!-- meta description -->
+    <meta name="description" content="cms project">
+    <!-- mobile viwport meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ================================
+    CSS Files
+    ================================= -->
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i|Open+Sans:400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="~/Static/css/themefisher-fonts.min.css">
+    <link rel="stylesheet" href="~/Static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Static/css/main.css">
+    <link id="color-changer" rel="stylesheet" href="~/Static/css/colors/red.css">
+    <link rel="stylesheet" href="~/Static/css/contact-form-stylesheet.css" />
+    <link rel="stylesheet" href="~/Static/css/audioplayer.css" />
+</head>
+
+<body>
+
+    <div class="preloader">
+        <div class="loading-mask"></div>
+        <div class="loading-mask"></div>
+        <div class="loading-mask"></div>
+        <div class="loading-mask"></div>
+        <div class="loading-mask"></div>
+    </div>
+
+    <main class="site-wrapper">
+
+        @RenderBody()
+
+    </main> <!-- /.site-wrapper -->
+    <!-- ================================
+    JavaScript Libraries
+    ================================= -->
+    <script src="~/Static/js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="~/Static/js/vendor/bootstrap.min.js"></script>
+    <script src="~/Static/js/jquery.easing.min.js"></script>
+    <script src="~/Static/js/isotope.pkgd.min.js"></script>
+    <script src="~/Static/js/jquery.nicescroll.min.js"></script>
+    <script src="~/Static/js/owl.carousel.min.js"></script>
+    <script src="~/Static/js/jquery-validation.min.js"></script>
+    <script src="~/Static/js/form.min.js"></script>
+    <script src="~/Static/js/main.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

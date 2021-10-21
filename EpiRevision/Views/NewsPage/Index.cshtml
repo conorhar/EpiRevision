@@ -1,0 +1,42 @@
+﻿@model NewsPageViewModel
+
+<div class="pt-table">
+    <div class="pt-tablecell page-quotes relative">
+        <!-- .close -->
+        <a href="../" class="page-close"><i class="tf-ion-close"></i></a>
+        <!-- /.close -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+                    <div class="page-title text-center">
+                        <h2>
+                            @Html.PropertyFor(x => x.CurrentPage.FirstFrontHeader)
+                            <span class="primary">@Html.PropertyFor(x => x.CurrentPage.SecondFrontHeader)</span>
+                            <span class="title-bg">@Html.PropertyFor(x => x.CurrentPage.ShadowHeader)</span>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="testimonials">
+
+                        @Html.PropertyFor(x => x.CurrentPage.ContentArea)
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="page-nav clear">
+            <div class="container">
+                <div class="flex flex-middle space-between">
+                    <span class="copyright hidden-xs">Copyright © 2021, Designed &amp; Developed by <a href="https://themefisher.com/">Themefisher</a>.</span>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+</div>
