@@ -1,0 +1,63 @@
+﻿@model ResultViewModel
+
+<div class="pt-table">
+    <div class="pt-tablecell page-quotes relative">
+
+        <a href="../" class="page-close"><i class="tf-ion-close"></i></a>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+                    <div class="page-title text-center">
+                        <h2>
+                            @Html.PropertyFor(x => x.CurrentPage.FirstFrontHeader)
+                            <span class="primary">@Html.PropertyFor(x => x.CurrentPage.SecondFrontHeader)</span>
+                            <span class="title-bg">@Html.PropertyFor(x => x.CurrentPage.ShadowHeader)</span>
+                        </h2>
+                    </div>
+                    @using (Html.BeginForm("Index", "FindPage", FormMethod.Post, new { @class = "row contact-form no-gutter" }))
+                    {
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="input-field name">
+                                <span class="input-icon" id="name"><i class="tf-ion-disc"></i></span>
+                                <input type="text" name="query" id="" class="form-control" placeholder="Search site">
+                            </div>
+                            <input type="submit" class="btn btn-primary btn-custom-border text-uppercase" value="Search">
+                        </div>
+                    }
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="testimonials">
+
+                        @if (Model.Result != null)
+                        {
+                            <ul>
+                                @foreach (var item in Model.Result)
+                                {
+                                <li>
+                                    <h2><a href="@item.Url">@item.Title</a></h2>
+                                    <p>@Html.Raw(item.Excerpt)</p>
+                                </li>
+                                }
+                            </ul>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="page-nav clear">
+            <div class="container">
+                <div class="flex flex-middle space-between">
+                    <span class="copyright hidden-xs">Copyright © 2021, Designed &amp; Developed by <a href="https://themefisher.com/">Themefisher</a>.</span>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+</div>
