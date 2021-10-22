@@ -39,5 +39,18 @@ namespace EpiRevision.Controllers
                 return View(model);
             }
         }
+
+       //[HttpGet] (works fine without)
+        public async Task<ActionResult> GetMovie(MovieSearchPage currentPage, string id)
+        {
+            var result = await _movieService.GetMovie(id);
+
+            var model = new MovieSearchViewModel(currentPage)
+            {
+                Movie = result
+            };
+
+            return View(model);
+        }
     }
 }

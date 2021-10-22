@@ -373,6 +373,7 @@
     <Content Include="Views\NewsPage\Index.cshtml" />
     <Content Include="Views\NewsBlock\Index.cshtml" />
     <Content Include="Views\MovieSearchPage\Index.cshtml" />
+    <Content Include="Views\MovieSearchPage\GetMovie.cshtml" />
     <None Include="Web.conor.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

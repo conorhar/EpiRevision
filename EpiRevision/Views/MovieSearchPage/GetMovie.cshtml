@@ -1,0 +1,24 @@
+﻿@model MovieSearchViewModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="testimonials">
+                <div class="item clear">
+                    <figure class="thumb">
+                        <div class="tm-hex" style="background-image: url('@Url.ContentUrl(Model.Movie.Poster)');">
+                            <div class="hexTop"></div>
+                            <div class="hexBottom"></div>
+                        </div>
+                        <figcaption>
+                            <h4>@Model.Movie.Title</h4>
+                        </figcaption>
+                    </figure>
+                    <div class="text">
+                        <p>@Model.Movie.Year</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -26,5 +26,24 @@ namespace EpiRevision.Services
 
             return searchResult;
         }
+
+        public async Task<Movie> GetMovie(string id)
+        {
+            string url = $"https://www.omdbapi.com/?apikey={Constants.OmdbApiKey}&i={id}";
+
+            Movie result = null;
+
+            using (var client = new HttpClient())
+            {
+                var response = await client.GetAsync(url);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    result = await response.Content.ReadAsAsync<Movie>();
+                }
+            }
+
+            return result;
+        }
     }
 }
