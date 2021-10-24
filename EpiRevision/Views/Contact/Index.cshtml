@@ -1,0 +1,108 @@
+﻿@model ContactPageViewModel
+
+<div class="pt-table desktop-768">
+    <div class="pt-tablecell page-contact relative">
+        <!-- .close -->
+        <a href="./" class="page-close"><i class="tf-ion-close"></i></a>
+        <!-- /.close -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+                    <div class="page-title text-center">
+                        <h2>
+                            @Html.PropertyFor(x => x.CurrentPage.FirstFrontHeader)@*Get in*@
+                            <span class="primary">@Html.PropertyFor(x => x.CurrentPage.SecondFrontHeader)@*touch*@</span>
+                            <span class="title-bg">@Html.PropertyFor(x => x.CurrentPage.ShadowHeader)@*Shadow*@</span>
+                        </h2>
+                        <p>@Html.PropertyFor(x => x.CurrentPage.Preamble)</p>
+                    </div>
+                </div>
+            </div> <!-- /.row -->
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
+                    <div class="contact-block">
+                        <div class="media">
+                            <div class="media-left">
+                                <i class="tf-envelope2"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4>Email</h4>
+                                <p><a href="mailto:">...</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.contact-block -->
+                    <div class="contact-block">
+                        <div class="media">
+                            <div class="media-left">
+                                <i class="tf-phone2"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4>Phone</h4>
+                                <p><a href="tel:">...</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.contact-block -->
+                    <div class="contact-block">
+                        <div class="media">
+                            <div class="media-left">
+                                <i class="tf-chat"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4>Visit us</h4>
+                                <p><a href="tel:">...</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="contact-social">
+                        <li>
+                            <span class="contact-social-hex"></span>
+                            <a href="www.fb.com/themefisher"><i class="tf-ion-social-facebook"></i></a>
+                        </li>
+                        <li>
+                            <span class="contact-social-hex"></span>
+                            <a href="www.twitter.com/themefisher"><i class="tf-ion-social-twitter"></i></a>
+                        </li>
+                        <li>
+                            <span class="contact-social-hex"></span>
+                            <a href="#"><i class="tf-ion-social-google"></i></a>
+                        </li>
+                        <li>
+                            <span class="contact-social-hex"></span>
+                            <a href="www.dribbble.com/themefisher"><i class="tf-ion-social-dribbble"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-7 col-md-7 col-md-offset-1 col-lg-offset-2">
+                    <div class="section-title clear">
+                        <h3>Send us a message</h3>
+                        <span class="bar-dark"></span>
+                        <span class="bar-primary"></span>
+                    </div>
+
+                    <div id="contact-form" class="">
+                        @Html.PropertyFor(x => x.CurrentPage.ContentArea)
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <nav class="page-nav clear">
+            <div class="container">
+                <div class="flex flex-middle space-between">
+                    @*<span class="prev-page"><a href="@Url.Action("Index", "EpiMusicStartPage")" class="link">← Back to startpage</a></span>*@
+                    <span class="copyright hidden-xs">Copyright © 2021, Designed &amp; Developed by <a href="https://themefisher.com/">Themefisher</a>.</span>
+                </div>
+            </div>
+            <!-- /.page-nav -->
+        </nav>
+
+        <!-- /.container -->
+
+    </div> <!-- /.pt-tablecell -->
+</div>

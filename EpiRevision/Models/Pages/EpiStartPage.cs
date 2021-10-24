@@ -11,16 +11,17 @@ namespace EpiRevision.Models.Pages
     )]
     [ImageUrl("/Static/img/startpage.png")]
     [AvailableContentTypes(
-        Include = new [] { typeof(FoodPage), typeof(NewsPage), typeof(NewsContainer), typeof(MovieSearchPage), typeof(FindPage) }    
+        Include = new [] { typeof(FoodPage), typeof(NewsPage), typeof(NewsContainer), typeof(MovieSearchPage), typeof(FindPage),
+                            typeof(ContactPage), typeof(ContentPage)}    
     )]
     public class EpiStartPage : HeaderPageData
     {
+        [CultureSpecific]
         [Display(
             GroupName = SystemTabNames.Content,
-            Order = 10
+            Order = 40
         )]
         [UIHint(UIHint.Textarea)]
-        [CultureSpecific]
         public virtual string Preamble { get; set; }
     }
 }

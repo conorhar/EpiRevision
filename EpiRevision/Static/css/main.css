@@ -1,6 +1,14 @@
 /*------------------------------------------------
 	Base Styles
 -------------------------------------------------*/
+.epi-blue {
+    background-color: #445768;
+}
+
+.epi-orange {
+    background-color: #EF9047
+}
+
 body {
   font-family: "Libre Baskerville", serif;
   font-weight: 400;

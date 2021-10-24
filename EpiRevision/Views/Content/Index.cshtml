@@ -1,0 +1,24 @@
+﻿@model ContentPageViewModel
+
+<div class="pt-table desktop-768">
+    <div class="pt-tablecell page-contact relative">
+        <!-- .close -->
+        <a href="./" class="page-close"><i class="tf-ion-close"></i></a>
+        <!-- /.close -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+                    <div class="page-title text-center">
+                        <h2>
+                            @Html.PropertyFor(x => x.CurrentPage.FirstFrontHeader)@*Get in*@
+                            <span class="primary">@Html.PropertyFor(x => x.CurrentPage.SecondFrontHeader)@*touch*@</span>
+                            <span class="title-bg">@Html.PropertyFor(x => x.CurrentPage.ShadowHeader)@*Shadow*@</span>
+                        </h2>
+                        <p>@Html.PropertyFor(x => x.CurrentPage.Preamble)</p>
+                    </div>
+                </div>
+            </div> <!-- /.row -->
+        </div>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 ﻿using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace EpiRevision.Models.Pages
 {
@@ -13,5 +14,13 @@ namespace EpiRevision.Models.Pages
     )]
     public class FoodPage : HeaderPageData
     {
+        [CultureSpecific]
+        [Display(
+            Name = "Background colour",
+            GroupName = SystemTabNames.Content,
+            Order = 50
+        )]
+        [UIHint("BackgroundColour")]
+        public virtual string BackgroundColour { get; set; }
     }
 }

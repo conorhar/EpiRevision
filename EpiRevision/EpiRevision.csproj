@@ -61,6 +61,9 @@
     <Reference Include="EPiServer, Version=11.15.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.CMS.Core.11.15.1\lib\net461\EPiServer.dll</HintPath>
     </Reference>
+    <Reference Include="EPiServer.AddOns.Helpers, Version=0.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.AddOns.Helpers.0.4.0.0\lib\EPiServer.AddOns.Helpers.dll</HintPath>
+    </Reference>
     <Reference Include="EPiServer.ApplicationModules, Version=11.15.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Framework.11.15.1\lib\net461\EPiServer.ApplicationModules.dll</HintPath>
     </Reference>
@@ -108,6 +111,15 @@
     </Reference>
     <Reference Include="EPiServer.Find.UI, Version=13.4.5.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Find.Cms.13.4.5\lib\net461\EPiServer.Find.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Forms, Version=4.30.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Forms.4.30.3\lib\EPiServer.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Forms.Core, Version=4.30.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Forms.Core.4.30.3\lib\EPiServer.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Forms.UI, Version=4.30.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Forms.UI.4.30.3\lib\EPiServer.Forms.UI.dll</HintPath>
     </Reference>
     <Reference Include="EPiServer.Framework, Version=11.15.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Framework.11.15.1\lib\net461\EPiServer.Framework.dll</HintPath>
@@ -272,15 +284,21 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
     <Compile Include="Abstractions\IMovieService.cs" />
+    <Compile Include="Business\CustomProperties\BackgroundColour\BackgroundColourDescriptor.cs" />
+    <Compile Include="Business\CustomProperties\BackgroundColour\BackgroundColourSelectionFactory.cs" />
     <Compile Include="Business\IModifyLayout.cs" />
     <Compile Include="Business\Initializers\DependencyResolverInitialization.cs" />
     <Compile Include="Business\Initializers\RootContentInitialization.cs" />
     <Compile Include="Business\Initializers\SiteMetadataExtenderInitialization.cs" />
     <Compile Include="Business\MetadataExtenders\SiteMetadataExtender.cs" />
+    <Compile Include="Business\ScheduledJobs\DeleteMovies.cs" />
     <Compile Include="Business\ServiceLocatorDependencyResolver.cs" />
     <Compile Include="Business\UIDescriptors\ContainerTreeIconDescriptor.cs" />
     <Compile Include="Business\UIDescriptors\ForceAllPropertiesViewUiDescriptor.cs" />
     <Compile Include="Controllers\Blocks\NewsBlockController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Models\ViewModels\ContentPageViewModel.cs" />
     <Compile Include="Controllers\EpiStartPageController.cs" />
     <Compile Include="Controllers\FindPageController.cs" />
     <Compile Include="Controllers\FoodPageController.cs" />
@@ -296,6 +314,8 @@
     <Compile Include="Models\Constants.cs" />
     <Compile Include="Models\EpiserverDefaultContentIcons.cs" />
     <Compile Include="Models\Media\ImageFile.cs" />
+    <Compile Include="Models\Pages\ContactPage.cs" />
+    <Compile Include="Models\Pages\ContentPage.cs" />
     <Compile Include="Models\Pages\EpiStartPage.cs" />
     <Compile Include="Models\Pages\FindPage.cs" />
     <Compile Include="Models\Pages\FoodItemPage.cs" />
@@ -306,6 +326,7 @@
     <Compile Include="Models\Pages\NewsItemPage.cs" />
     <Compile Include="Models\Pages\NewsPage.cs" />
     <Compile Include="Models\Pages\SitePageData.cs" />
+    <Compile Include="Models\ViewModels\ContactPageViewModel.cs" />
     <Compile Include="Models\ViewModels\EpiStartPageViewModel.cs" />
     <Compile Include="Models\ViewModels\FoodPageViewModel.cs" />
     <Compile Include="Models\ViewModels\Interfaces\IPageViewModel.cs" />
@@ -380,6 +401,11 @@
     <Content Include="modules\_protected\CMS\CMS.zip" />
     <Content Include="modules\_protected\EPiServer.Cms.TinyMce\web.config" />
     <Content Include="modules\_protected\EPiServer.Cms.TinyMce\EPiServer.Cms.TinyMce.zip" />
+    <Content Include="modules\_protected\EPiServer.Forms.UI\module.config" />
+    <Content Include="modules\_protected\EPiServer.Forms.UI\EPiServer.Forms.UI.zip" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\Web.config" />
+    <Content Include="modules\_protected\EPiServer.Forms\Forms.config" />
+    <Content Include="modules\_protected\EPiServer.Forms\EPiServer.Forms.zip" />
     <None Include="packages.config" />
     <Content Include="Views\_viewStart.cshtml" />
     <Content Include="Views\Shared\Layouts\_Root.cshtml" />
@@ -406,6 +432,8 @@
     <Content Include="Views\MovieSearchPage\Index.cshtml" />
     <Content Include="Views\MovieSearchPage\GetMovie.cshtml" />
     <Content Include="Views\FindPage\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Content\Index.cshtml" />
     <None Include="Web.conor.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

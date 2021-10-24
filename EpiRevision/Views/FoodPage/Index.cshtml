@@ -1,6 +1,10 @@
 ﻿@model FoodPageViewModel
+
+@{ 
+    var backgroundColour = Model.CurrentPage.BackgroundColour;
+}
     
-<div class="pt-table">
+<div class="pt-table @backgroundColour">
     <div class="pt-tablecell page-quotes relative">
         <!-- .close -->
         <a href="../" class="page-close"><i class="tf-ion-close"></i></a>
