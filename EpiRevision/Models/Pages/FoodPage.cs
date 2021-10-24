@@ -1,4 +1,6 @@
-﻿using EPiServer.DataAbstraction;
+﻿using EpiRevision.Abstractions;
+using EpiRevision.Models.Blocks;
+using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using System.ComponentModel.DataAnnotations;
 
@@ -12,7 +14,7 @@ namespace EpiRevision.Models.Pages
     [AvailableContentTypes(
         Include = new [] { typeof(FoodItemPage) }    
     )]
-    public class FoodPage : HeaderPageData
+    public class FoodPage : HeaderPageData, IMyCustomProperties, INoIndex
     {
         [CultureSpecific]
         [Display(
@@ -22,5 +24,17 @@ namespace EpiRevision.Models.Pages
         )]
         [UIHint("BackgroundColour")]
         public virtual string BackgroundColour { get; set; }
+
+        [Display(
+            GroupName = SystemTabNames.Content,
+            Order = 60
+        )]
+        public virtual NewsBlock News { get; set; }
+
+        [Display(
+            GroupName = SystemTabNames.Content,
+            Order = 70
+        )]
+        public virtual bool IsYouTube { get; set; }
     }
 }

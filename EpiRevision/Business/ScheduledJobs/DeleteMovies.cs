@@ -1,4 +1,6 @@
-﻿using EPiServer.PlugIn;
+﻿using EpiRevision.Models.Api;
+using EPiServer.Data.Dynamic;
+using EPiServer.PlugIn;
 using EPiServer.Scheduler;
 using System;
 using System.Collections.Generic;
@@ -9,7 +11,7 @@ using System.Web;
 namespace EpiRevision.Business.ScheduledJobs
 {
     [ScheduledPlugIn(
-        DisplayName = "A test job",
+        DisplayName = "Delete movies",
         Description = "Removes movies from the DDS",
         GUID = "1B737DE2-8883-44D1-BE57-C25FF0B091C7"
     )]
@@ -28,13 +30,16 @@ namespace EpiRevision.Business.ScheduledJobs
 
             if (stopSignal)
             {
-                Thread.Sleep(5000);
                 return "The job has been stopped";
             }
             else
             {
-                Thread.Sleep(5000);
-                return "to do!!!!!!!!!";
+                var store = DynamicDataStoreFactory.Instance.CreateStore(typeof(Movie));
+                var countMovies = store.Items<Movie>().Count();
+
+                DynamicDataStoreFactory.Instance.DeleteStore(typeof(Movie), true);
+
+                return $"{countMovies} movies were deleted";
             }
         }
 

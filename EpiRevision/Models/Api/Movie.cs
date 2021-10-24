@@ -1,8 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using EPiServer.Data;
+using EPiServer.Data.Dynamic;
+using Newtonsoft.Json;
 
 namespace EpiRevision.Models.Api
 {
-    public class Movie
+    public class Movie : IDynamicData
     {
         [JsonProperty("Title")]
         public string Title { get; set; }
@@ -18,5 +20,6 @@ namespace EpiRevision.Models.Api
 
         [JsonProperty("Poster")]
         public string Poster { get; set; }
+        public Identity Id { get; set; }
     }
 }

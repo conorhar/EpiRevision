@@ -284,9 +284,12 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
     <Compile Include="Abstractions\IMovieService.cs" />
+    <Compile Include="Abstractions\IMyCustomProperties.cs" />
+    <Compile Include="Abstractions\INoIndex.cs" />
     <Compile Include="Business\CustomProperties\BackgroundColour\BackgroundColourDescriptor.cs" />
     <Compile Include="Business\CustomProperties\BackgroundColour\BackgroundColourSelectionFactory.cs" />
     <Compile Include="Business\IModifyLayout.cs" />
+    <Compile Include="Business\Initializers\CategoryInitialization.cs" />
     <Compile Include="Business\Initializers\DependencyResolverInitialization.cs" />
     <Compile Include="Business\Initializers\RootContentInitialization.cs" />
     <Compile Include="Business\Initializers\SiteMetadataExtenderInitialization.cs" />
