@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /sok/
+SiteMap: https://epirevision.local/sitemap/

@@ -1,4 +1,5 @@
-﻿using EPiServer.DataAbstraction;
+﻿using EPiServer.Core;
+using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using EPiServer.Web;
 using System.ComponentModel.DataAnnotations;
@@ -12,7 +13,7 @@ namespace EpiRevision.Models.Pages
     [ImageUrl("/Static/img/startpage.png")]
     [AvailableContentTypes(
         Include = new [] { typeof(FoodPage), typeof(NewsPage), typeof(NewsContainer), typeof(MovieSearchPage), typeof(FindPage),
-                            typeof(ContactPage), typeof(ContentPage)}    
+                            typeof(ContactPage), typeof(ContentPage), typeof(XmlSitemap)}    
     )]
     public class EpiStartPage : HeaderPageData
     {
@@ -21,7 +22,6 @@ namespace EpiRevision.Models.Pages
             GroupName = SystemTabNames.Content,
             Order = 40
         )]
-        [UIHint(UIHint.Textarea)]
-        public virtual string Preamble { get; set; }
+        public virtual XhtmlString Preamble { get; set; }
     }
 }

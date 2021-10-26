@@ -286,14 +286,18 @@
     <Compile Include="Abstractions\IMovieService.cs" />
     <Compile Include="Abstractions\IMyCustomProperties.cs" />
     <Compile Include="Abstractions\INoIndex.cs" />
+    <Compile Include="Abstractions\IXmlSitemapService.cs" />
     <Compile Include="Business\CustomProperties\BackgroundColour\BackgroundColourDescriptor.cs" />
     <Compile Include="Business\CustomProperties\BackgroundColour\BackgroundColourSelectionFactory.cs" />
     <Compile Include="Business\IModifyLayout.cs" />
+    <Compile Include="Business\Initializers\TinyMceConfigurationModule.cs" />
     <Compile Include="Business\Initializers\CategoryInitialization.cs" />
     <Compile Include="Business\Initializers\DependencyResolverInitialization.cs" />
     <Compile Include="Business\Initializers\RootContentInitialization.cs" />
     <Compile Include="Business\Initializers\SiteMetadataExtenderInitialization.cs" />
     <Compile Include="Business\MetadataExtenders\SiteMetadataExtender.cs" />
+    <Compile Include="Business\Personalization\LoggedIn\LoggedInCriterion.cs" />
+    <Compile Include="Business\Personalization\LoggedIn\LoggedInCriterionSettings.cs" />
     <Compile Include="Business\ScheduledJobs\DeleteMovies.cs" />
     <Compile Include="Business\ServiceLocatorDependencyResolver.cs" />
     <Compile Include="Business\UIDescriptors\ContainerTreeIconDescriptor.cs" />
@@ -301,6 +305,11 @@
     <Compile Include="Controllers\Blocks\NewsBlockController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\XmlSitemapController.cs" />
+    <Compile Include="Extensions\ContentExtensions.cs" />
+    <Compile Include="Extensions\ContentReferenceExtensions.cs" />
+    <Compile Include="Models\Pages\XmlSitemap.cs" />
+    <Compile Include="Models\TinyMcePluginNames.cs" />
     <Compile Include="Models\ViewModels\ContentPageViewModel.cs" />
     <Compile Include="Controllers\EpiStartPageController.cs" />
     <Compile Include="Controllers\FindPageController.cs" />
@@ -339,14 +348,20 @@
     <Compile Include="Models\ViewModels\NewsPageViewModel.cs" />
     <Compile Include="Models\ViewModels\PageViewModel.cs" />
     <Compile Include="Models\ViewModels\ResultViewModel.cs" />
+    <Compile Include="Models\ViewModels\XmlSitemapViewModel.cs" />
+    <Compile Include="Plugins\Rating\Controllers\RatingPluginController.cs" />
+    <Compile Include="Plugins\Rating\Models\ViewModels\RatingViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\MovieService.cs" />
+    <Compile Include="Services\XmlSitemapService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\Properties\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="license.txt" />
+    <Content Include="Plugins\Rating\Static\css\rating.css" />
+    <Content Include="Plugins\Rating\Static\js\rating.js" />
     <Content Include="Static\css\animate.css" />
     <Content Include="Static\css\audioplayer.css" />
     <Content Include="Static\css\bootstrap.min.css" />
@@ -394,6 +409,7 @@
     <Content Include="Static\js\owl.carousel.min.js" />
     <Content Include="Static\js\vendor\bootstrap.min.js" />
     <Content Include="Static\js\vendor\jquery-2.2.4.min.js" />
+    <Content Include="Static\tinymce\plugins\dropcontentplugin\editor_plugin.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -437,6 +453,8 @@
     <Content Include="Views\FindPage\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Content\Index.cshtml" />
+    <Content Include="Plugins\Rating\Views\Index.cshtml" />
+    <Content Include="Views\XmlSitemap\Index.cshtml" />
     <None Include="Web.conor.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

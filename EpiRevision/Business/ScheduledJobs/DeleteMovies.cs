@@ -2,11 +2,7 @@
 using EPiServer.Data.Dynamic;
 using EPiServer.PlugIn;
 using EPiServer.Scheduler;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
-using System.Web;
 
 namespace EpiRevision.Business.ScheduledJobs
 {
