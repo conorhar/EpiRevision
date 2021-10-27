@@ -18,6 +18,7 @@ namespace EpiRevision.Controllers
         {
             var model = new XmlSitemapViewModel(currentPage)
             {
+                Parent = _xmlSitemapService.Parent(currentPage),
                 Descendants = _xmlSitemapService.Descendants(currentPage)
             };
 

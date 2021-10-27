@@ -10,5 +10,7 @@ namespace EpiRevision.Abstractions
     public interface IXmlSitemapService
     {
         IEnumerable<SitePageData> Descendants(XmlSitemap currentPage);
+
+        SitePageData Parent(XmlSitemap currentPage);
     }
 }

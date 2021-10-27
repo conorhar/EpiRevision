@@ -20,7 +20,7 @@ namespace EpiRevision.Services
 
         public IEnumerable<SitePageData> Descendants(XmlSitemap currentPage)
         {
-            var startPage = _contentLoader.GetAncestors(currentPage.ContentLink).FirstOrDefault(x => x is EpiStartPage) as PageData;
+            var startPage = Parent(currentPage);
             var descendants = Enumerable.Empty<SitePageData>();
 
             if (startPage != null)
@@ -30,6 +30,11 @@ namespace EpiRevision.Services
             }
 
             return descendants;
+        }
+
+        public SitePageData Parent(XmlSitemap currentPage)
+        {
+            return _contentLoader.GetAncestors(currentPage.ContentLink).FirstOrDefault(x => x is EpiStartPage) as SitePageData;
         }
     }
 }

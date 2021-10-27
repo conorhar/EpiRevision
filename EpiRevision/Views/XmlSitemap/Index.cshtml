@@ -18,20 +18,31 @@
     var urlsetStart = "<urlset xmlns=\"https://www.sitemaps.org/schemas/sitemap/0.9\">";
     var urlsetEnd = "</urlset>";
 
-    if (Model.Descendants != null)
+    if (Model.Parent != null)
     {
+        var icontent = (IContent)Model.Parent;
+        var externalUrl = icontent.GetExternalUrl();
+        var pageUrl = new Uri(externalUrl);
+
+        if (Model.Parent.LinkType == PageShortcutType.External)
+        {
+            pageUrl = new Uri(Model.Parent.LinkURL.Contains(".aspx") ? Model.Parent.LinkURL.Url() : Model.Parent.LinkURL);
+        }
+        var modDate = Model.Parent.XmlSitemapDate.IsNotNullOrWhiteSpace() ? Model.Parent.XmlSitemapDate : Model.Parent.Changed.ToString("d", Thread.CurrentThread.CurrentCulture);
+        url.Append("<url><loc>" + pageUrl + "</loc><lastmod>" + modDate + "</lastmod></url>");
+
         foreach (var page in Model.Descendants)
         {
-            var icontent = (IContent)page;
-            var externalUrl = icontent.GetExternalUrl();
-            var pageUrl = new Uri(externalUrl);
+            icontent = (IContent)page;
+            externalUrl = icontent.GetExternalUrl();
+            pageUrl = new Uri(externalUrl);
 
             if (page.LinkType == PageShortcutType.External)
             {
                 pageUrl = new Uri(page.LinkURL.Contains(".aspx") ? page.LinkURL.Url() : page.LinkURL);
             }
 
-            var modDate = page.XmlSitemapDate.IsNotNullOrWhiteSpace() ? page.XmlSitemapDate : page.Changed.ToString("d", Thread.CurrentThread.CurrentCulture);
+            modDate = page.XmlSitemapDate.IsNotNullOrWhiteSpace() ? page.XmlSitemapDate : page.Changed.ToString("d", Thread.CurrentThread.CurrentCulture);
             url.Append("<url><loc>" + pageUrl + "</loc><lastmod>" + modDate + "</lastmod></url>");
         }
     }

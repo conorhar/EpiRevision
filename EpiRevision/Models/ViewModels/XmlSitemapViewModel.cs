@@ -10,6 +10,8 @@ namespace EpiRevision.Models.ViewModels
     {
         public IEnumerable<SitePageData> Descendants { get; set; }
 
+        public SitePageData Parent { get; set; }
+
         public XmlSitemapViewModel(XmlSitemap currentPage) : base(currentPage)
         {
 
