@@ -158,6 +158,12 @@
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Toolkit, Version=6.1.0.0, Culture=neutral, PublicKeyToken=4aff67a105548ee2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Toolkit.6.1.1\lib\netstandard2.0\Microsoft.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Toolkit.Parsers, Version=6.1.0.0, Culture=neutral, PublicKeyToken=4aff67a105548ee2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Toolkit.Parsers.6.1.1\lib\netstandard2.0\Microsoft.Toolkit.Parsers.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
@@ -170,6 +176,9 @@
     <Reference Include="StructureMap.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\structuremap.web.4.0.0.315\lib\net40\StructureMap.Web.dll</HintPath>
     </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ComponentModel.Annotations.4.4.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
     </Reference>
@@ -177,6 +186,9 @@
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Data.SqlClient, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SqlClient.4.4.0\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Net" />
     <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -197,6 +209,13 @@
       <HintPath>..\packages\System.Net.Http.2.0.20126.16343\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Security" />
@@ -286,6 +305,7 @@
     <Compile Include="Abstractions\IMovieService.cs" />
     <Compile Include="Abstractions\IMyCustomProperties.cs" />
     <Compile Include="Abstractions\INoIndex.cs" />
+    <Compile Include="Abstractions\IRssService.cs" />
     <Compile Include="Abstractions\IXmlSitemapService.cs" />
     <Compile Include="Business\CustomProperties\BackgroundColour\BackgroundColourDescriptor.cs" />
     <Compile Include="Business\CustomProperties\BackgroundColour\BackgroundColourSelectionFactory.cs" />
@@ -306,12 +326,15 @@
     <Compile Include="Controllers\Blocks\NewsBlockController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\RssPageController.cs" />
     <Compile Include="Controllers\XmlSitemapController.cs" />
     <Compile Include="Extensions\ContentExtensions.cs" />
     <Compile Include="Extensions\ContentReferenceExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\UrlExtensions.cs" />
+    <Compile Include="Models\Pages\RssPage.cs" />
     <Compile Include="Models\Pages\XmlSitemap.cs" />
+    <Compile Include="Models\RssItem.cs" />
     <Compile Include="Models\TinyMcePluginNames.cs" />
     <Compile Include="Models\ViewModels\ContentPageViewModel.cs" />
     <Compile Include="Controllers\EpiStartPageController.cs" />
@@ -351,11 +374,13 @@
     <Compile Include="Models\ViewModels\NewsPageViewModel.cs" />
     <Compile Include="Models\ViewModels\PageViewModel.cs" />
     <Compile Include="Models\ViewModels\ResultViewModel.cs" />
+    <Compile Include="Models\ViewModels\RssPageViewModel.cs" />
     <Compile Include="Models\ViewModels\XmlSitemapViewModel.cs" />
     <Compile Include="Plugins\Rating\Controllers\RatingPluginController.cs" />
     <Compile Include="Plugins\Rating\Models\ViewModels\RatingViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\MovieService.cs" />
+    <Compile Include="Services\RssService.cs" />
     <Compile Include="Services\XmlSitemapService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -458,6 +483,7 @@
     <Content Include="Views\Content\Index.cshtml" />
     <Content Include="Plugins\Rating\Views\Index.cshtml" />
     <Content Include="Views\XmlSitemap\Index.cshtml" />
+    <Content Include="Views\RssPage\Index.cshtml" />
     <None Include="Web.conor.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

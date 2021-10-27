@@ -13,7 +13,7 @@ namespace EpiRevision.Models.Pages
     [ImageUrl("/Static/img/startpage.png")]
     [AvailableContentTypes(
         Include = new [] { typeof(FoodPage), typeof(NewsPage), typeof(NewsContainer), typeof(MovieSearchPage), typeof(FindPage),
-                            typeof(ContactPage), typeof(ContentPage), typeof(XmlSitemap)}    
+                            typeof(ContactPage), typeof(ContentPage), typeof(XmlSitemap), typeof(RssPage)}    
     )]
     public class EpiStartPage : HeaderPageData
     {

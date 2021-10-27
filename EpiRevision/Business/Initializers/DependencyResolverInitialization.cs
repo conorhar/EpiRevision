@@ -25,6 +25,7 @@ namespace EpiRevision.Business.Initializers
             {
                 context.Services.AddTransient<IMovieService, MovieService>();
                 context.Services.AddTransient<IXmlSitemapService, XmlSitemapService>();
+                context.Services.AddTransient<IRssService, RssService>();
             };
         }
     }
