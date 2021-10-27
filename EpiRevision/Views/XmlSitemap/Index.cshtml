@@ -26,12 +26,12 @@
             var externalUrl = icontent.GetExternalUrl();
             var pageUrl = new Uri(externalUrl);
 
-            //if (page.LinkType == PageShortcutType.External)
-            //{
-            //    pageUrl = new Uri(page.LinkURL.Contains(".aspx") ? page.LinkURL.Url() : page.LinkURL);
-            //}
+            if (page.LinkType == PageShortcutType.External)
+            {
+                pageUrl = new Uri(page.LinkURL.Contains(".aspx") ? page.LinkURL.Url() : page.LinkURL);
+            }
 
-            var modDate = page.StartPublish;  //.XmlSitemapDate.IsNotNullOrWhiteSpace() ? page.XmlSitemapDate : page.Changed.ToString("d", Thread.CurrentThread.CurrentCulture);
+            var modDate = page.XmlSitemapDate.IsNotNullOrWhiteSpace() ? page.XmlSitemapDate : page.Changed.ToString("d", Thread.CurrentThread.CurrentCulture);
             url.Append("<url><loc>" + pageUrl + "</loc><lastmod>" + modDate + "</lastmod></url>");
         }
     }

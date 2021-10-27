@@ -290,6 +290,7 @@
     <Compile Include="Business\CustomProperties\BackgroundColour\BackgroundColourDescriptor.cs" />
     <Compile Include="Business\CustomProperties\BackgroundColour\BackgroundColourSelectionFactory.cs" />
     <Compile Include="Business\IModifyLayout.cs" />
+    <Compile Include="Business\Initializers\EventsInitialization.cs" />
     <Compile Include="Business\Initializers\TinyMceConfigurationModule.cs" />
     <Compile Include="Business\Initializers\CategoryInitialization.cs" />
     <Compile Include="Business\Initializers\DependencyResolverInitialization.cs" />
@@ -308,6 +309,8 @@
     <Compile Include="Controllers\XmlSitemapController.cs" />
     <Compile Include="Extensions\ContentExtensions.cs" />
     <Compile Include="Extensions\ContentReferenceExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\UrlExtensions.cs" />
     <Compile Include="Models\Pages\XmlSitemap.cs" />
     <Compile Include="Models\TinyMcePluginNames.cs" />
     <Compile Include="Models\ViewModels\ContentPageViewModel.cs" />

@@ -1,4 +1,6 @@
-﻿using EPiServer.DataAnnotations;
+﻿using EPiServer.DataAbstraction;
+using EPiServer.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace EpiRevision.Models.Pages
 {
